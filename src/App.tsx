@@ -28,12 +28,12 @@ function App() {
   </GridItem>
   <Show>
 
-  <GridItem  bg='gold' area='aside'>
+  <GridItem   area='aside'>
     Aside
   </GridItem>
   </Show>
 
-  <GridItem  bg='green.300' area='main'>
+  <GridItem   area='main'>
     Main
   </GridItem>
   </Grid>
