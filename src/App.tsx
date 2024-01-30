@@ -15,6 +15,10 @@ function App() {
     
     
     }}
+    templateColumns={{
+      base:'1fr',
+      lg:"200px 1fr"
+    }}
 
     // gridTemplateRows={'50px 1fr 30px'}
     // gridTemplateColumns={'150px 1fr'}
@@ -30,7 +34,7 @@ function App() {
   </GridItem>
   <Show>
 
-  <GridItem   area='aside'>
+  <GridItem   area='aside' paddingX={5}>
    <GenreList/>
   </GridItem>
   </Show>
