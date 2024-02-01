@@ -30,6 +30,7 @@ const sortOrders = [
 
 const SortSelector = ({onSelectSortOrder,sortOrder}:Props) => {
     const currentSortOrder = sortOrders.find(order=> order.value === sortOrder)
+    // if(error)  return null
   return (
     <Menu>
     <MenuButton as={Button} rightIcon={<BsChevronDown/>}>

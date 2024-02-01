@@ -7,11 +7,15 @@ import { Genre } from './hooks/useGenres'
 import PlatformSelector from './components/PlatformSelector'
 import { Platform } from './hooks/useGames'
 import SortSelector from './components/SortSelector'
+import "./index.css"
+import GameHeading from './components/GameHeading'
 
 export interface GameQuery{
   genre:Genre;
   platform:Platform;
-  sortOrder:string
+  sortOrder:string;
+  searchText:string;
+
 }
 
 function App() {
@@ -44,7 +48,7 @@ function App() {
 
    
     <GridItem  area='nav'>
-    <Navbar/>
+    <Navbar onSearch={(searchText)=>setGameQuery({...gameQuery,searchText})}/>
   </GridItem>
   <Show>
 
@@ -54,15 +58,19 @@ function App() {
 
   </GridItem>
   </Show>
-
+{/* Main */}
   <GridItem   area='main'>
-    <Flex  paddingLeft={2} marginBottom={3}>
-      <Box gap={2} marginRight={5} paddingLeft={2}>
-      <PlatformSelector selectedPlatform={gameQuery.platform}  onSelectPlatform={(platform)=>setGameQuery({...gameQuery,platform})}/>
-      <SortSelector sortOrder={gameQuery.sortOrder} onSelectSortOrder={(sortOrder)=>setGameQuery({...gameQuery,sortOrder})}/>
-      </Box>
+    <Box paddingLeft={2}>
+      <GameHeading gameQuery={gameQuery}/>
+      <Flex  marginBottom={3}>
+        <Box gap={2} marginRight={5} paddingLeft={2}>
+        <PlatformSelector selectedPlatform={gameQuery.platform}  onSelectPlatform={(platform)=>setGameQuery({...gameQuery,platform})}/>
+        <SortSelector sortOrder={gameQuery.sortOrder} onSelectSortOrder={(sortOrder)=>setGameQuery({...gameQuery,sortOrder})}/>
+        </Box>
+        </Flex>
+    </Box>
     
-    </Flex>
+   
     {/* <PlatformSelector selectedPlatform={selectedPlatform}  onSelectPlatform={(platform)=>setSelectedPlatform(platform)}/> */}
     
 
